@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void com(int i, vector<vector<int>>&ans, int target,int n,vector<int>&cand,vector<int>&v)
+    void com(int i, vector<vector<int>>&ans, int target,int n,vector<int>&cand,vector<int>v)
     {
        if(i>=n)
        {
