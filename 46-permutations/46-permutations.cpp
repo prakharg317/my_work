@@ -3,8 +3,9 @@ public:
     
     void pm(vector<vector<int>>&ans, vector<int>&ds, vector<int>&nums)
     {
-        if(ds.size()>nums.size())
+        if(ds.size()==nums.size())
         {
+            ans.push_back(ds);
             return;
         }
         
@@ -14,26 +15,16 @@ public:
             pm(ans,ds,nums);
             ds.pop_back();
             
-            if(ds.size()==nums.size())
-            {
-                ans.push_back(ds);
-                //s.clear();
-                return;
-            }
+            // if(ds.size()==nums.size())
+            // {
+            //     ans.push_back(ds);
+            //     //s.clear();
+            //     return;
+            // }
         }
         
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     vector<vector<int>> permute(vector<int>& nums) 
     {
@@ -56,12 +47,7 @@ public:
                 {
                   mp.insert({ans[i],i});  
                 }
-                
-            
-        }
-        
-        
-        
+       }
         
         ans.clear();
         
