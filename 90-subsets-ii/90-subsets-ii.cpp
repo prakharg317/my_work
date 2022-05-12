@@ -29,39 +29,7 @@ public:
         sort(nums.begin(),nums.end());
         vector<vector<int>>ans;
         vector<int>v;
-        if(nums.size()==1){
-        ans.push_back(v);
-        v.push_back(nums[0]);
-        ans.push_back(v);
-            return ans;}
-        int flag=0;
-        for(int i=0; i<nums.size()-1; i++)
-        {
-            if(nums[i]==nums[i+1])
-            {
-                
-            }
-            else{
-                flag=1;
-            }
-        }
         
-        if(flag==0)
-        {
-            ans.push_back(v);
-           for(int i=0; i<nums.size();i++)
-           {
-              v.push_back(nums[0]);
-               ans.push_back(v);
-           }
-            
-            return ans;
-        }
-        
-        
-        
-        ans.clear();
-        v.clear();
         
         ss(ans,v,nums,0);
         
