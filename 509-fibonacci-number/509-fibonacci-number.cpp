@@ -1,35 +1,21 @@
 class Solution {
 public:
-    int fb(int n,   int dp[])
-    {
-       if(n<=1)
-        {
-            return n;
-        }
-        
-        
-            if(dp[n]!=-1)
-            {
-                return dp[n];
-            }
-            
-            
-            return dp[n]= (fb(n-1,dp)+fb(n-2,dp));
-        
-        
-        
-        
-    } 
-    
-    
-    
-    int fib(int n) {
+     int fib(int n) {
+         if(n<=1)return n;
         
         int dp[n+1];
         memset(dp,-1,sizeof(dp));
         
-        int res= fb(n,dp);
-        return res;
+        dp[0]=0;
+        dp[1]=1;
+         
+         //if(n<=1)return dp[n];
+        
+        for(int i=2; i<=n;i++)
+        {
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+        return dp[n];
     }
         
 };
