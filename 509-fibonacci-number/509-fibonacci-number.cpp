@@ -3,19 +3,18 @@ public:
      int fib(int n) {
          if(n<=1)return n;
         
-        int dp[n+1];
-        memset(dp,-1,sizeof(dp));
         
-        dp[0]=0;
-        dp[1]=1;
-         
-         //if(n<=1)return dp[n];
         
+        int prev2=0;
+        int prev1=1;
+        int x;
         for(int i=2; i<=n;i++)
         {
-            dp[i]=dp[i-1]+dp[i-2];
+            x=prev2+prev1;
+            prev2=prev1;
+            prev1=x;
         }
-        return dp[n];
+        return x;
     }
         
 };
