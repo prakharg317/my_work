@@ -27,14 +27,9 @@ public:
     {
         int m= grid.size();
         int n= grid[0].size();
-        vector<int>ans;
         vector<vector<int>>dp(m,vector<int>(n,-1));
         
         int res= mps(dp,grid,m-1,n-1);
-        for(int i=0; i<ans.size(); i++)
-        {
-            cout<<ans[i]<<" ";
-        }
         
         return res;
         
