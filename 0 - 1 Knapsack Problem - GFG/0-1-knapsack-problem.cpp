@@ -10,7 +10,7 @@ class Solution
     //Function to return max value that can be put in knapsack of capacity W.
     int ks(vector<vector<int>>&dp, int *weight, int *value, int i,int w)
     {
-        //if(w==0)return value[i]; 
+        if(w==0)return 0; 
         if(i==0 && w>=weight[i])return value[i];
         if(i==0 && w<weight[i])return 0;
         
@@ -21,7 +21,7 @@ class Solution
         
         if(w>=weight[i])
         {
-            t= value[i]+ks(dp,weight,value,i-1,w-weight[i]);
+            t= value[i]+ ks(dp,weight,value,i-1,w-weight[i]);
         }
         
         return dp[i][w]=max(t,nt);
