@@ -13,7 +13,11 @@ class Solution{
         if(i<0||j<0) return 0;
         if(dp[i][j]!=-1) return dp[i][j];
         if(S1[i]==S2[j]) 
+        {
         take=1+f(i-1,j-1,S1,S2,dp,ans);
+        }
+        
+        
         nottake1=f(i-1,j,S1,S2,dp,ans);
         nottake2=f(i,j-1,S1,S2,dp,ans);
         ans=max(ans,take);
