@@ -4,8 +4,13 @@ public:
     string getSmallestString(int n, int k) {
         
            string s="";
-        for(int i=0;i<n;i++)
-            s+='a';
+        int i=0;
+        while(i<n)
+        {
+          s+='a'; 
+            i++;
+        }
+            
         k=k-n;
         for(int i=n-1;i>=0;i--)
         {
