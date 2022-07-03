@@ -14,19 +14,34 @@ class Solution{
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
     int kthSmallest(int arr[], int l, int r, int k) {
-        priority_queue<int>maxh;
         
-        for(int i=l;i<=r;i++)
+        priority_queue<int>pq;
+        int i=0;
+        while(i<=r)
         {
-            maxh.push(arr[i]);
-            if(maxh.size()>k)
+            if(pq.size()<k)
             {
-                maxh.pop();
+                pq.push(arr[i]);
             }
+            
+            else
+            {
+                if(pq.top()>arr[i])
+                {
+                    pq.pop();
+                    pq.push(arr[i]);
+                }
+            }
+            
+            i++;
         }
-        
-        
-        return maxh.top();
+        // int j=1;
+        // while(j<k)
+        // {
+        //     pq.pop();
+        //     j++;
+        // }
+        return pq.top();
     }
 };
 
