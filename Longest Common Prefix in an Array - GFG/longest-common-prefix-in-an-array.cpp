@@ -19,8 +19,6 @@ class Solution{
         for(int i=0; i<N; i++)
         {
             string q=arr[i];
-            //if(q.size()==1)return q;
-            //cout<<q.size();
             int x=q.size();
             if(m>x)
             {
@@ -32,14 +30,12 @@ class Solution{
                 n=q.size();
                 s="";
                 s=s+q;
-                //cout<<"as ";
             }
             
             if(i<N-1)
             {
                 if(arr[i][0]!=arr[i+1][0] )
                 {
-                    //cout<<"ds";
                     return "-1";
                 }
             }
@@ -49,8 +45,6 @@ class Solution{
         n= 10000;
         string ans;
         
-        //cout<<s<<" ";
-        
         for(int i=0; i<N; i++)
         {
             string w="";
@@ -58,9 +52,6 @@ class Solution{
             
            int n1=0;
            string t=arr[i];
-           //if(t.size()>m)continue;
-           
-               
                while(j<t.size())
              {
                 if(s[j]==t[j])
@@ -81,8 +72,6 @@ class Solution{
                    
                     break;
                 }
-             
-             
              if(j==t.size())
              {
                  if(n1<n)
@@ -95,8 +84,6 @@ class Solution{
            }
            
         }
-        
-        //cout<<ans.size()<<"  ";
         if(ans.size()==0)
         {
             return "-1";
