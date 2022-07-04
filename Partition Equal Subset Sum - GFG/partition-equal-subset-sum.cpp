@@ -15,8 +15,7 @@ public:
         {
             return((ans+arr[0])==(sum-arr[0]));
         }
-        // if(ans+arr[i]> sum-arr[i])return 0;
-         if(ans==sum)return 1;
+        //if(ans==sum)return 1;
         
         if(dp[i][sum]!=-1)return dp[i][sum];
         
