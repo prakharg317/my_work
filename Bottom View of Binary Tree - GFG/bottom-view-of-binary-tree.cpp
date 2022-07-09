@@ -95,65 +95,37 @@ Node* buildTree(string str)
 
 class Solution {
   public:
-    vector <int> bottomView(Node *root) 
-    {
-      
-      queue<pair<Node*,int>>q;
-      q.push({root,0});
-      
-      vector<int>v;
-      
-      multimap<int, Node*>mp;
-      mp.insert({0,root});
-      
-      while(!q.empty())
-      {
-          
-          int n=q.size();
-          for(int i=0; i<n; i++)
-          {
-              Node * n= q.front().first;
-              int x= q.front().second;
-              if(n->left!=NULL)
-              {
-                  mp.insert({x-1,n->left});
-                  q.push({n->left,x-1});
-              }
-              
-              if(n->right!=NULL)
-              {
-                  mp.insert({x+1,n->right});
-                  q.push({n->right,x+1});
-              }
-              q.pop(); 
-          }
-      }
-      int prev;
-      Node * temp;
-      for(auto it:mp)
-      {
-          prev=it.first;
-          temp=it.second;
-          
-          
-          break;
-          
-      }
-      
-      for(it:mp)
-      {
-          if(prev!=it.first)
-          {
-             v.push_back(temp->data); 
-          }
-          
-          prev=it.first;
-          temp=it.second;
-      }
-    v.push_back(temp->data);
-  return v;
-  
+    vector <int> bottomView(Node *root) {
+        vector<int>ans;
         
+        queue<pair<Node*, int>>q;
+        q.push({root, 0});
+        map<int,int>mp;
+        while(!q.empty())
+        {
+            int n=q.size();
+            
+            //vector<int>v;
+            
+            for(int i=0; i<n; i++)
+            {
+                Node * temp=q.front().first;
+                int x= q.front().second;
+                q.pop();
+                
+                if(temp->left!=NULL)q.push({temp->left,x-1});
+                if(temp->right!=NULL)q.push({temp->right, x+1});
+                
+                //ans.push_back({temp->data,x});
+                mp[x]=temp->data;
+            }
+        }
+        //vector
+        for(auto it:mp)
+        {
+          ans.push_back(it.second);  
+        }
+        return ans;
     }
 };
 
