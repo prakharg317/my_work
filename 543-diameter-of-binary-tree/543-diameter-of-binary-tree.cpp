@@ -11,26 +11,22 @@
  */
 class Solution {
 public:
-    int hot(TreeNode *root, vector<int>&v)
+    int hot(TreeNode *root, int &ans)
     {
         if(root==NULL)return 0;
         
-        int x= hot(root->left,v);
-        int y= hot(root->right,v);
+        int x= hot(root->left,ans);
+        int y= hot(root->right,ans);
         
-        v.push_back(x+y);
+        ans= max(ans, x+y);
         return max(x,y)+1;
     }
     int diameterOfBinaryTree(TreeNode* root) {
         //if(root->left==NULL && root->right==NULL)return 0;
         
          vector<int>v;
-         hot(root,v)+1;
-       int ans=INT_MIN;
-         for(int i=0; i<v.size(); i++)
-         {
-             ans= max(ans,v[i]);
-         }
+        int ans=0;      
+        hot(root,ans);
         
         
         
