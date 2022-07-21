@@ -3,18 +3,17 @@ public:
     
     bool isBipartite(vector<vector<int>>& graph) {
         
-        vector<int>adj[100];
-        for(int i=0; i<graph.size(); i++)
-        {
+//         vector<int>adj[100];
+//         for(int i=0; i<graph.size(); i++)
+//         {
           
-            for(int j=0; j<graph[i].size(); j++)
-            {
-                //mp[graph[i][j]]++;
-                adj[i].push_back(graph[i][j]);
+//             for(int j=0; j<graph[i].size(); j++)
+//             {
+//                 adj[i].push_back(graph[i][j]);
                 
-            }
+//             }
             
-        }
+//         }
         
         int n=graph.size();
         
@@ -30,7 +29,7 @@ public:
                 {
                   int x= q.front();
                     q.pop();
-                    for(auto it:adj[x])
+                    for(auto it:graph[x])
                     {
                         if(col[it]==-1)
                         {
