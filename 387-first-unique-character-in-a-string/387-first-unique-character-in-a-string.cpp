@@ -2,7 +2,6 @@ class Solution {
 public:
     int firstUniqChar(string s) {
         unordered_map<char,int>mp;
-        //unordered_map<char,int>mp1;
         
         for(int i=0; i<s.size(); i++)
         {
@@ -11,19 +10,6 @@ public:
         }
         
         int flag=0;
-        
-        for(auto it:mp)
-        {
-            if(it.second==1)
-            {
-                flag=1;
-                
-            }
-            
-            
-        }
-        if(flag==0)return -1;
-        
         int ans;
         
         for(int i=0; i<s.size(); i++)
@@ -31,12 +17,12 @@ public:
             if(mp[s[i]]==1)
             {
                 ans=i;
+                flag=1;
                 break;
             }
         }
         
-        
-        
+        if(flag==0)return -1;
         return ans;
     }
 };
