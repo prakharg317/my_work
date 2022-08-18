@@ -2,30 +2,24 @@ class Solution {
 public:
     int minSetSize(vector<int>& arr) {
         unordered_map<int,int>mp;
-        
+        vector<int>v;
         for(int i=0; i<arr.size(); i++)
         {
             mp[arr[i]]++;
         }
         
         int half= arr.size()/2;
-        half=arr.size()-half;
-        //cout<<half<<" ";
-        multimap<int,int>mp1;
         
         for(auto it:mp)
         {
-            //mp1[it.second]++;
-            mp1.insert({it.second,0});
+            v.push_back(it.second);
         }
-        
+        sort(v.begin(),v.end());
         int count=0;
         
-        for (auto it = mp1.rbegin(); it != mp1.rend(); it++) 
+        for(int i=v.size()-1; i>=0; i--)
         {
-           // cout<<it->first<<endl;
-            half= half- (it->first);
-            //cout<<half<<endl;
+            half-= v[i];
             count++;
             if(half<=0)
             {
